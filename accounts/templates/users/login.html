@@ -1,0 +1,28 @@
+{% extends 'home.html' %}
+{% load widget_tweaks %}
+
+{% block title %}Log In to UserForm{% endblock title %}
+
+{% block content %}
+<form class="p-4 p-md-5 border rounded-3 bg-light" method="POST">
+  {% csrf_token %}
+  <h2 class="mb-4">Log In to UserForm</h2>
+  <div class="form-floating mb-3">
+    <input type="text" name="identifier" class="form-control" id="floatingInput" placeholder="Username or Email">
+    <label for="floatingInput">Username or Email</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+    <label for="floatingPassword">Password</label>
+  </div>
+  <button class="w-100 btn btn-lg btn-primary" type="submit">Log In</button>
+  <hr class="my-4">
+  <small class="text-muted">Forgot your password?
+    <a href="{% url 'reset-password' %}">Forgot Password</a>.
+  </small>
+  <br>
+  <small class="text-muted">Don't have an account?
+    <a href="{% url 'register' %}">Sign up</a>.
+  </small>
+</form>
+{% endblock %}
